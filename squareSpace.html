@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+            background-color: black;
+        }
+        .container{
+            width: 100%;
+            height: 100%;
+            background-color: black;
+        }
+        .navigation-bar{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100px;
+            padding-right: 20px;
+            /* background-color: gray; */
+        }
+        .log img{
+            width: 20vw;
+        }
+        .nav-links{
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a{
+            color: white;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .nav-login-section{
+            display: flex;
+            gap: 20px;
+        }
+        #nav-first-button{
+            background-color: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #nav-second-button{
+            border: none;
+            padding: 20px 2vw;
+            background-color: white;
+            color: black;
+            cursor: pointer;
+        }
+        /* Main div start */
+
+        .main h1{
+            z-index: 1;
+            text-align: center;
+            color: white;
+            font-size: 100px;
+            text-transform: uppercase;
+            position: relative;
+        }
+        .main h1 span{
+            text-transform: uppercase;
+            color: white;
+            background-color: brown;
+            border: none;
+            border-radius: 50px;
+            padding: 20px 50px;
+            font-size: 30px;
+            margin: 0 10px;
+            position: relative;
+            top: -20px;
+        }
+        /* Image styling */
+        #frist-pic{
+            position: absolute;
+            top: 150px;
+            left: 20px;
+            height: 160px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        #second-pic{
+            position: absolute;
+            top: 130px;
+            right: 60px;
+            width: 20vw;
+            height: 16vw;
+            border-radius: 10px;
+            z-index: 0;
+        }
+        #third-pic{
+            position: absolute;
+            bottom: 70px;
+            right: 170px;
+            width: 100px;
+            height: 160px;
+            border-radius: 10px;
+            z-index: 0;
+        }
+        #forth-pic{
+            position: absolute;
+            bottom: 70px;
+            left: 180px;
+            width: 26vw;
+            height: 20vw;
+            border-radius: 10px;
+            z-index: 0;
+        }
+        .scroll{
+            color: brown;
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translate(-50%, 0);
+            font-size: 20px;
+            font-weight: 900;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="navigation-bar">
+            <div class="log">
+            <img src="https://static1.squarespace.com/static/5134cbefe4b0c6fb04df8065/t/5bd1e183ec212df24c8d5d0f/1582743997341/squarespace-logo-horizontal-white.jpg" alt="Logo">
+        </div>
+        <div class="nav-links">
+                <a href="#">PRODUCTS</a>
+                <a href="#">TEMPLATES</a>
+                <a href="#">RESOURCES</a>
+        </div>
+        <div class="nav-login-section">
+            <button id="nav-first-button">LOG IN</button>
+            <button id="nav-second-button">GET STARTED</button>
+        </div>
+        </nav>
+        <!-- Main container -->
+        <div class="main">
+            <h1>Everything</h1>
+            <h1>To<span class="heading-button">Book Now</span>Sell</h1>
+            <h1>Anything</h1>
+        </div>
+        <div class="images">
+            <img id="frist-pic" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/640px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg" alt="Mona liza">
+            <img id="second-pic" src="https://www.fitoor.com.pk/wp-content/uploads/2021/02/IMG_20210221_011534_893.jpg" alt="Hourse">
+            <img id="third-pic" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlg-x0Y5pV1kiI_Di9R0l9wVzBqFW_MWsZEA&usqp=CAU" alt="">
+            <img id="forth-pic" src="https://t4.ftcdn.net/jpg/05/55/71/83/360_F_555718315_XAi4cgO4s2uBRshlJZ8wXjAWkptX8023.jpg" alt="">
+            <b class="scroll">Scroll Down ↓</b>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        const tl = gsap.timeline();
+
+        tl.from('a, button',{
+            y: 50,
+            duration: 1,
+            delay: 0.5,
+            opacity: 0,
+            stagger: 0.2,
+        })
+        tl.from('h1',{
+            duration: 1,
+            delay: 0.1,
+            opacity: 0
+        })
+        gsap.from('.heading-button', {
+            scale: 0,
+            opacity: 0
+        })
+        tl.from('img', {
+            y: -50,
+            duration: 1,
+            delay: 0.1,
+            opacity: 0,
+            stagger: 0.2,
+        })
+        tl.from('b', {
+            scale: 0,
+            opacity: 0,
+        })
+        tl.to('b',{
+            y: 20,
+            repeat: -1,
+            duration:0.5,
+            yoyo: true
+        })
+    </script>
+</body>
+</html>
